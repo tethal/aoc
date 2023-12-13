@@ -45,7 +45,7 @@ def find_part2(pattern):
             pattern[y][x] = '#' if pattern[y][x] == '.' else '.'
 
 
-with open('13a.txt', 'rt') as f:
+with open('ex/13.txt', 'rt') as f:
     patterns = list([list(l) for l in v] for k, v in groupby(f.read().splitlines(), key=lambda x: bool(x)) if k)
 
 

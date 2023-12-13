@@ -13,7 +13,7 @@ def solve(time, distance):
     return x2 - x1 + 1
 
 
-with open('06a.txt', 'rt') as f:
+with open('ex/06.txt', 'rt') as f:
     times = list(map(int, f.readline().split(':')[1].split()))
     distances = list(map(int, f.readline().split(':')[1].split()))
 

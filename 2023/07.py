@@ -35,7 +35,7 @@ def cmp_hands(h1, h2):
     return 0
 
 
-with open('07.txt', 'rt') as f:
+with open('ex/07.txt', 'rt') as f:
     hands = [(line.split()[0], int(line.split()[1])) for line in f]
 
 hands = sorted(hands, key=functools.cmp_to_key(cmp_hands))

@@ -1,4 +1,4 @@
-with open('04a.txt', 'rt') as f:
+with open('ex/04.txt', 'rt') as f:
     cards = [len(set.intersection(*({int(n) for n in part.split()} for part in line.split(':')[1].split('|')))) for line in f]
 
 # Part 1

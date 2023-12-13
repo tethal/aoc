@@ -10,7 +10,7 @@ NEIGHBOURS = {
     'S': ((0, 1), (0, -1), (1, 0), (-1, 0))
 }
 
-with open('10a.txt', 'rt') as f:
+with open('ex/10.txt', 'rt') as f:
     maze = f.readlines()
 
 h = len(maze) + 2

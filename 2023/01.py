@@ -6,5 +6,5 @@ def find_digit(line, rev):
             return v
 
 
-with open('01a.txt', 'rt') as f:
+with open('ex/01.txt', 'rt') as f:
     print(sum(10 * find_digit(line, lambda x: x) + find_digit(line, reversed) for line in f))

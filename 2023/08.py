@@ -5,7 +5,7 @@ RE = re.compile(r'(\w+) = \((\w+), (\w+)\)')
 
 
 nodes = {}
-with open('08a.txt', 'rt') as f:
+with open('ex/08.txt', 'rt') as f:
     ins = f.readline().strip()
     f.readline()
     for line in f:

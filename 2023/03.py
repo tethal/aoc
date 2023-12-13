@@ -22,7 +22,7 @@ def convert_line(line, y):
 
 
 symbols = []
-with open('03a.txt', 'rt') as f:
+with open('ex/03.txt', 'rt') as f:
     grid = tuple(convert_line(line.strip(), y) for y, line in enumerate(f))
 
     for _, x, y, neighbours in symbols:

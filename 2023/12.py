@@ -29,7 +29,7 @@ def solve(d, runs):
     return solve(d[1:], runs) + solve('#' + d[1:], runs)
 
 
-with open('12a.txt', 'rt') as f:
+with open('ex/12.txt', 'rt') as f:
     rows = [(s.split()[0], tuple(map(int, s.split()[1].strip().split(',')))) for s in f]
 
 print(sum(solve(*row) for row in rows))

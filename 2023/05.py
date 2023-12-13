@@ -1,7 +1,7 @@
 import itertools
 
 
-with open('05a.txt', 'rt') as f:
+with open('ex/05.txt', 'rt') as f:
     seeds = list(map(int, f.readline().split(':')[1].split()))
     maps = [tuple((tuple(map(int, x.split())) for x in b)) for a, b in itertools.groupby(f, lambda k: bool(k[0].isdigit())) if a]
 

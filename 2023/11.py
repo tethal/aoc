@@ -1,7 +1,7 @@
 import itertools
 
 
-with open('11a.txt', 'rt') as f:
+with open('ex/11.txt', 'rt') as f:
     data = f.read().splitlines()
 
 
