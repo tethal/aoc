@@ -47,7 +47,10 @@ def find_path(x, y):
             return visited, d
 
 
-border, dist = next((border, dist) for border, dist in [find_path(sx + dx, sy + dy) for dx, dy in NEIGHBOURS['S']] if border)
+for dx, dy in NEIGHBOURS['S']:
+    if (-dx, -dy) not in NEIGHBOURS[maze[sy + dy][sx + dx]]:
+        continue
+    border, dist = find_path(sx + dx, sy + dy)
 
 print(dist // 2)
 
