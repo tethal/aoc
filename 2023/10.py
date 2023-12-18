@@ -54,10 +54,10 @@ for dx, dy in NEIGHBOURS['S']:
 
 print(dist // 2)
 
-if border[sy][sx + 1]:
-    sr = 'F' if border[sy + 1][sx] else 'L'
+if border[sy][sx + 1] and maze[sy][sx + 1] in '7J':
+    sr = 'F' if border[sy + 1][sx] and maze[sy + 1][sx] in 'JL' else 'L'
 else:
-    sr = '7' if border[sy + 1][sx] else 'J'
+    sr = '7' if border[sy + 1][sx] and maze[sy + 1][sx] in 'JL' else 'J'
 
 maze = [''.join(sr if x == sx and y == sy else maze[y][x] if border[y][x] else '.' for x in range(w)) for y in range(h)]
 
