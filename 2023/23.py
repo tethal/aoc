@@ -26,26 +26,38 @@ def find_neighbours(all_dir_walkable):
     for ix, iy in intersections:
         queue = deque([(ix, iy, 0)])
         visited = set()
-        n = set()
+        n = []
         while queue:
             x, y, d = queue.popleft()
             visited.add((x, y))
             for nx, ny, a in (x, y + 1, 'v'), (x, y - 1, '^'), (x + 1, y, '>'), (x - 1, y, '<'):
                 if 0 <= nx < w and 0 <= ny < h and (nx, ny) not in visited and grid[ny][nx] in all_dir_walkable+a:
                     if (nx, ny) in intersections:
-                        n.add((nx, ny, d + 1))
+                        n.append((nx, ny, d + 1))
                     else:
                         queue.append((nx, ny, d + 1))
         neighbours[(ix, iy)] = n
     return neighbours
 
 
-def find_longest(neighbours, visited, ln, s, e):
-    if s == e:
+def find_longest(ln, s):
+    if s == end:
         return ln
-    return max((find_longest(neighbours, visited | {(x, y)}, ln + d, (x, y), e) for x, y, d in neighbours[s] if (x, y) not in visited), default=0)
+    visited.add(s)
+    m = 0
+    for x, y, d in neighbours[s]:
+        if (x, y) not in visited:
+            m = max(m, find_longest(ln + d, (x, y)))
+    visited.remove(s)
+    return m
 
 
 start, end, intersections = find_intersections()
-print(find_longest(find_neighbours('.'), set(), 0, start, end))
-print(find_longest(find_neighbours('.<>^v'), set(), 0, start, end))
+
+visited = set()
+neighbours = find_neighbours('.')
+print(find_longest(0, start))
+
+visisted = set()
+neighbours = find_neighbours('.<>^v')
+print(find_longest(0, start))
