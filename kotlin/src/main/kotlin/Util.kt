@@ -45,5 +45,7 @@ data class Rect(val x0: Int, val y0: Int, val w: Int, val h: Int) {
 
     companion object {
         fun ofSize(width: Int, height: Int) = Rect(0, 0, width, height)
+        fun fromCorners(topLeftX: Int, topLeftY: Int, bottomRightX: Int, bottomRightY: Int) =
+            Rect(topLeftX, topLeftY, bottomRightX - topLeftX + 1, bottomRightY - topLeftY + 1)
     }
 }
