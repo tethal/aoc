@@ -49,3 +49,16 @@ data class Rect(val x0: Int, val y0: Int, val w: Int, val h: Int) {
             Rect(topLeftX, topLeftY, bottomRightX - topLeftX + 1, bottomRightY - topLeftY + 1)
     }
 }
+
+fun <T> permutations(data: Set<T>): Sequence<List<T>> = sequence {
+    fun helper(src: Set<T>, result: List<T>): Sequence<List<T>> = sequence {
+        if (src.isEmpty()) {
+            yield(result)
+        } else {
+            for (e in src) {
+                yieldAll(helper(src - e, result + e))
+            }
+        }
+    }
+    yieldAll(helper(data, emptyList()))
+}
