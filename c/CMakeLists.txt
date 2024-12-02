@@ -8,3 +8,8 @@ add_executable(aoc_2024_01
         2024/01.c
         util.c
 )
+
+add_executable(aoc_2024_02
+        2024/02.c
+        util.c
+)

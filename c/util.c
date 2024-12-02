@@ -35,6 +35,13 @@ void long_array_list_sort(const long_array_list_t *list) {
     qsort(list->data, list->size, sizeof(long), cmp_long);
 }
 
+void long_array_list_print(const long_array_list_t *list) {
+    for (size_t i = 0; i < list->size; i++) {
+        printf("%ld ", list->data[i]);
+    }
+    printf("\n");
+}
+
 char *read_input(const char *filename) {
     FILE *f = fopen(filename, "r");
     assert(f);
