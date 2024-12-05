@@ -34,8 +34,8 @@ static long part1(const char *src) {
     long_array_list_sort(&right);
 
     long result = 0;
-    for (int i = 0; i < left.size; i++) {
-        result += abs(left.data[i] - right.data[i]);
+    for (int i = 0; i < long_array_list_size(&left); i++) {
+        result += abs(long_array_list_get(&left, i) - long_array_list_get(&right, i));
     }
 
     long_array_list_free(&left);
@@ -51,10 +51,12 @@ static long part2(const char *src) {
     parse(src, &left, &right);
 
     long result = 0;
-    for (int i = 0; i < left.size; i++) {
-        for (int j = 0; j < right.size; j++) {
-            if (left.data[i] == right.data[j]) {
-                result += left.data[i];
+    for (int i = 0; i < long_array_list_size(&left); i++) {
+        for (int j = 0; j < long_array_list_size(&right); j++) {
+            long l = long_array_list_get(&left, i);
+            long r = long_array_list_get(&right, j);
+            if (l == r) {
+                result += l;
             }
         }
     }
