@@ -15,6 +15,12 @@ class Vector:
     def __repr__(self):
         return f"Vector({self.x}, {self.y})"
 
+    def __eq__(self, other):
+        return self.x == other.x and self.y == other.y
+
+    def __hash__(self):
+        return hash((self.x, self.y))
+
 
 NW = Vector(-1, -1)
 NE = Vector(1, -1)
@@ -26,3 +32,5 @@ W = Vector(-1, 0)
 E = Vector(1, 0)
 
 DIRS = (N, NE, E, SE, S, SW, W, NW)
+
+TURN_LEFT = {N: E, E: S, S: W, W: N}
