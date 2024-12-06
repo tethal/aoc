@@ -45,10 +45,13 @@ def part1(src):
 
 def part2(src):
     grid, visited, gx, gy, d = parse(src)
+    simulate_guard(grid, visited, gx, gy, d)
+    part1_visited = [r.copy() for r in visited]
+
     count = 0
-    for y in range(len(grid)):
-        for x in range(len(grid[y])):
-            if grid[y][x] != '.':
+    for y, row in enumerate(part1_visited):
+        for x, v in enumerate(row):
+            if not v:
                 continue
             grid[y][x] = '#'
             if not simulate_guard(grid, visited, gx, gy, d):
@@ -81,5 +84,5 @@ start = time.time()
 print(part2(data))
 print(time.time() - start)
 
-# cpython 43.6
-# graalpy 1.2s
+# cpython 6.2
+# graalpy 0.54s
