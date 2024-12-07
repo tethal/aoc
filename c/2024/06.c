@@ -122,11 +122,15 @@ static long part1(const char *src) {
 static long part2(const char *src) {
     grid_t grid;
     parse(src, &grid);
+    simulate_guard(&grid);
+    char *part1_result = malloc(grid.h * grid.w);
+    memcpy(part1_result, grid.visited, grid.h * grid.w);
+
     int count = 0;
     for (int y = 0; y < grid.h; ++y) {
         for (int x = 0; x < grid.w; ++x) {
             int index = y * grid.w + x;
-            if (grid.data[index] != '.') {
+            if (!part1_result[index]) {
                 continue;
             }
             grid.data[index] = '#';
