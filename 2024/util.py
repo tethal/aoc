@@ -33,4 +33,5 @@ E = Vector(1, 0)
 
 DIRS = (N, NE, E, SE, S, SW, W, NW)
 
-TURN_LEFT = {N: E, E: S, S: W, W: N}
+TURN_RIGHT = {N: E, E: S, S: W, W: N}
+TURN_LEFT = {N: W, W: S, S: E, E: N}

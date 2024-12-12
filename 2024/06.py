@@ -1,6 +1,6 @@
 import time
 
-from util import E, N, S, TURN_LEFT, Vector, W
+from util import E, N, S, TURN_RIGHT, Vector, W
 
 D = {'^': N, 'v': S, '<': W, '>': E}
 
@@ -27,7 +27,7 @@ def simulate_guard(m, pos, d, obstacle=Vector(-1, -1)):
         if new_pos not in m:
             return visited_dir
         if new_pos == obstacle or m[new_pos] == '#':
-            d = TURN_LEFT[d]
+            d = TURN_RIGHT[d]
         else:
             pos = new_pos
 
