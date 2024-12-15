@@ -35,3 +35,5 @@ DIRS = (N, NE, E, SE, S, SW, W, NW)
 
 TURN_RIGHT = {N: E, E: S, S: W, W: N}
 TURN_LEFT = {N: W, W: S, S: E, E: N}
+
+DIR_FROM_CHAR = {'^': N, 'v': S, '<': W, '>': E}
