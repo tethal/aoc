@@ -1,5 +1,4 @@
 import time
-from collections import defaultdict
 
 
 def gen(s):
@@ -19,18 +18,18 @@ def part1(src):
 
 
 def part2(src):
-    sums = defaultdict(int)
+    sums = [0] * 19 ** 4
     for x in map(int, src.splitlines()):
         seen = set()
-        seq = 0, 0, 0, 0
+        seq = 0
         for i in range(2000):
             y = gen(x)
-            seq = seq[1], seq[2], seq[3], (y % 10) - (x % 10)
+            seq = (seq * 19 + (y % 10) - (x % 10) + 9) % 19 ** 4
             x = y
             if i >= 3 and seq not in seen:
                 seen.add(seq)
                 sums[seq] += y % 10
-    return max(sums.values())
+    return max(sums)
 
 
 SAMPLE = """\
